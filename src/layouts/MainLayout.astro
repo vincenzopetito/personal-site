@@ -13,8 +13,8 @@ const schema = JSON.stringify({
                 ]
             });
 
-import Header  from "../components/Header.astro";
-import Footer  from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
 
 import "../styles/style.css";
 ---
@@ -38,6 +38,7 @@ import "../styles/style.css";
         <meta property="og:description" content={globalData.description} />
         <meta property="og:url" content={globalData.websiteUrl} />
         <meta property="og:site_name" content={globalData.author} />
+		<meta property="og:image" content={globalData.websiteUrl + "/images/vincenzo.jpg"} />
 
 		<script type="application/ld+json" set:html={schema}></script>
 	</head>
