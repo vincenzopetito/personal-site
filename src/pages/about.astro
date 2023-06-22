@@ -1,0 +1,68 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import Hero from "../components/Hero.astro";
+import pills from "../data/pills.json";
+import workExperience from "../data/workExperience.json";
+---
+
+<MainLayout pageTitle="About">
+
+    <Hero image="/images/vincenzo.jpg" imageName="picture of vincenzo, in studio, dark background">
+        <h2 class="title">Design is not about "which UI is better?", it's about solving user's problems.</h2>
+    </Hero>
+
+    <section>
+        <span class="badge">About me</span>
+        <p class="paragraph">I grown up in Agropoli, a small city in the south of Italy. After graduating high school I moved to Milan to study <strong>Graphic Design and Art Direction at NABA</strong>, where I earned my bachelor's degree.</p>
+        <p class="paragraph">My first work experience was in a small startup, creating <strong>UIs for native iOS and Android apps</strong> using a custom made builder.</p>
+        <p class="paragraph">3 years later, I joined a digital agency where I had the chance to <strong>work directly with clients,</strong> juggling super-tight deadlines and extremely busy days.</p>
+        <p class="paragraph">I then moved to the product environment, where I initially thought I wouldn't last much, and where I found my best setup instead. I worked <strong>within the eBay family for around 7 years</strong>, on the automobile.it product, part of the eBay Classifieds Group portfolio.</p>
+        <p class="paragraph">Since October 2021 I took on a side project as <strong>professor at NABA</strong>, teaching Web Design and UX/UI Design within the undergraduate programmes, and Digital Design and Motion Design within the postgraduate programmes. It's good to be back where my career started, but on the other side of the desk :D</p>
+        <p class="paragraph">On a more personal side, I love watching movies and TV series, hanging out with friends for a beer, discovering new memes and solving the rubik's cube.</p>
+    </section>
+
+    <section>
+        <span class="badge">In pills</span>
+        <ul class="pills">
+            
+            { pills.map((pill) =>
+                <li>
+                    <span class="attr">{pill.name}</span>
+                    <strong class="value">{pill.value}</strong>
+                </li>
+            )}
+        </ul>
+    </section>
+
+    <section>
+        <span class="badge">Education and work experience</span>
+        <ul class="item-list">
+            { workExperience.map((experience) => 
+                <li>
+                    <span>{experience.date}</span>
+                    <p class="description">
+                        <strong>{experience.employer}</strong>
+                        {experience.role}
+                    </p>
+                </li>
+            )}
+        </ul>
+    </section>
+
+</MainLayout>
+
+<style>
+    .pills li {
+        margin-bottom: var(--space_Medium);
+        line-height: 1.5;
+    }
+
+    .attr {
+        display: block;
+        color: var(--darkGrey);
+    }
+
+    .value {
+        color: var(--black);
+    }
+</style>

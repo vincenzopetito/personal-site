@@ -1,0 +1,30 @@
+---
+const label = Astro.props.label;
+const url = Astro.props.url;
+---
+
+<a href={url}>
+    {label}
+</a>
+
+<style>
+    a {
+        font-weight: 700;
+        position: relative;
+        margin-right: var(--space_Base);
+        display: inline-block;
+        padding: var(--space_Base);
+        border: 1px solid var(--borderColor);
+        border-radius: var(--space_Base);
+        transition: all 0.4s var(--easing);
+        box-shadow: var(--shadow);
+        background: white url("/images/arrow-link.svg") right center no-repeat;
+    }
+
+    a:hover {
+        background: var(--primaryColor) url("/images/arrow-link.svg") right center no-repeat;
+        color: var(--background);
+        padding-right: calc(var(--space_Base) + var(--space_Medium));
+        border-color: var(--primaryColor);
+    }
+</style>

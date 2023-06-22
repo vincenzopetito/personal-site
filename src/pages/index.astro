@@ -1,0 +1,87 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import Button from "../components/Button.astro";
+import Hero from "../components/Hero.astro";
+import globalData from "../data/global.json";
+---
+
+<MainLayout pageTitle="Home">
+
+	<Hero imageName="home page meme" image="images/vincenzo.jpg">
+		<h2 class="title home-title"></h2>
+		<h1 class="paragraph">
+			Ciao! Vincenzo here, <strong>Digital Product Designer</strong> and <strong>professor.</strong> The title is useless, non-sense and non-SEO friendly, but it also has flows!
+			<br /><br />
+			Do you want to work together? <a href={"mailto:" + globalData.email}>Contact me</a>
+		</h1>
+	</Hero>
+
+	<section>
+		<span class="badge">Product designer</span>
+		<p class="paragraph">
+			I have 10+ years experience working as product designer in start-up, digital agency and big company.
+		</p>
+		<Button label="More about me" url="about" />
+	</section>
+
+	<section>
+		<span class="badge">Speaker</span>
+		<p class="paragraph">
+			I shared my experience and know-how in several meetups and workshops.<br/> Do you want me to speak at your event? Drop me a line!
+		</p>
+		<Button label="Ask for a talk" url={"mailto:" + globalData.email + "?subject=Speech request"} />
+		<Button label="See past events" url="speaker" />
+	</section>
+
+	<section>
+		<span class="title">Let's connect!</span>
+		<p class="paragraph">
+			If you want to say “Ciao“, here's my social accounts.
+		</p>
+		<ul class="social">
+			{globalData.social.map((social) => 
+				<li>
+					<Button label={social.name} url={social.url} />
+				</li>
+			)}
+		</ul>
+	</section>
+
+</MainLayout>
+
+<style>
+	.social {
+		display: flex;
+		flex-wrap: wrap;
+		row-gap: var(--space_Base);
+	}
+</style>
+
+<script>
+	let titles = [
+		"You don’t need to write the title, if you don’t have a title!",
+		"One does not simply to write a good title!",
+		"When you avoid writing the title using a meme!",
+		"I’m a ninja, unicorn, fullstack designer!",
+		"Me trying to find a good idea for this title!",
+		"When you find this idea of the meme!",
+		"Because you’ll write a title, right?"
+	];
+	let homeTitle = document.querySelector(".home-title");
+	let homeImage = document.querySelector(".hero figure img");
+	let refreshButton = document.querySelector(".refresh");
+
+	let number = Math.floor(Math.random() * 7);
+
+	homeTitle.textContent = titles[number];
+	homeImage.setAttribute("src", `/images/home/${number}.jpg`);
+
+	refreshButton.addEventListener("click", function(e) {
+		e.preventDefault();
+
+		number = Math.floor(Math.random() * 7);
+		
+		homeTitle.textContent = titles[number];
+		homeImage.setAttribute("src", `/images/home/${number}.jpg`);
+	});
+</script>

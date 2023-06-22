@@ -1,0 +1,37 @@
+[
+    {
+        "date": "May 2020",
+        "name": "District Leaders Insights - Interview",
+        "description": "Smart working, assunzioni e cultura del lavoro durante la pandemia",
+        "link": "https://www.linkedin.com/pulse/district-leaders-insights-3-alessandro-mare"
+    },
+    {
+        "date": "November 2019",
+        "name": "Sketch Torino - Design System e Workflow",
+        "description": "Velocizzare il proprio workflow con Sketch",
+        "link": "https://www.slideshare.net/VincenzoPetito/velocizzare-il-proprio-workflow-su-sketch"
+    },
+    {
+        "date": "September 2018",
+        "name": "4° TheSignOf Meetup [Interaction & Live Design]",
+        "description": "Framer X: matricola o meteora?",
+        "link": "https://www.slideshare.net/VincenzoPetito/framer-x-matricola-o-meteora"
+    },
+    {
+        "date": "April 2018",
+        "name": "1° TheSignOf Meetup - [Talks su UX/UI & Case Study]",
+        "description": "Framer by Framer - Un viaggio step by step nel flusso di lavoro di un designer",
+        "link": "https://www.slideshare.net/VincenzoPetito/framer-by-framer"
+    },
+    {
+        "date": "October 2017",
+        "name": "Sketch & Design Meetup",
+        "description": "Framer - Un prototipo vale mille meeting is the new un'immagine vale mille parole",
+        "link": "https://www.slideshare.net/VincenzoPetito/un-prototipo-valle-mille-meeting-is-the-new-unimmagine-vale-mille-parole"
+    },
+    {
+        "date": "November 2016",
+        "name": "UX/UI/IA Meetup",
+        "description": "Sketch - Interface design made easy"
+    }
+]

@@ -1,0 +1,51 @@
+---
+import globalData from "../data/global.json";
+const schema = JSON.stringify({
+                "@context": "https://schema.org",
+				"@type": "Person",
+                "name": "Vincenzo Petito",
+                "description": "Digital Product Designer, professor at NABA, based in Milan. Designer full-time, music listener, movies watcher, meme lover and keyboard maniac part-time.",
+                "url": "http://vincenzopetito.com",
+                "sameAs": [
+					"https://www.linkedin.com/in/vincenzopetito",
+                    "https://dribbble.com/vincenzopetito",
+                    "https://www.instagram.com/vinpiexel"
+                ]
+            });
+
+import Header  from "../components/Header.astro";
+import Footer  from "../components/Footer.astro";
+
+import "../styles/style.css";
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+		<!-- SEO TAGS -->
+		<title>Vincenzo Petito • {Astro.props.pageTitle}</title>
+        <meta name="author" content={globalData.author} />
+        <meta name="description" content={globalData.description} />
+        <link rel="canonical" href={globalData.websiteUrl} />
+
+		<!-- Open Graph -->
+		<meta property="og:title" content={globalData.author} />
+		<meta property="og:type" content="website" />
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:description" content={globalData.description} />
+        <meta property="og:url" content={globalData.websiteUrl} />
+        <meta property="og:site_name" content={globalData.author} />
+
+		<script type="application/ld+json" set:html={schema}></script>
+	</head>
+	<body>
+		<Header />
+		<div class="wrapper">
+			<slot />
+			<Footer />
+		</div>
+	</body>
+</html>

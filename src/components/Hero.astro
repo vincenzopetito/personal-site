@@ -1,0 +1,86 @@
+---
+import { Image } from '@astrojs/image/components';
+const image = Astro.props.image;
+const imageName = Astro.props.imageName;
+---
+
+<section class="hero">
+    <div>
+        <figure>
+            <Image src={image} alt={imageName} width={344} height={344} format="webp" />
+        </figure>
+        {Astro.url.pathname == "/" &&
+            <a href="#" class="refresh" aria-label="refresh image">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M9.979 12.4644H3.979V6.46436" stroke="#3D6B99" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M23.778 8.22183C22.7565 7.20038 21.5439 6.39013 20.2093 5.83733C18.8748 5.28452 17.4444 5 15.9998 5C14.5553 5 13.1249 5.28452 11.7903 5.83733C10.4557 6.39013 9.24309 7.20038 8.22164 8.22183L3.979 12.4645" stroke="#3D6B99" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M22.021 19.5356H28.021V25.5356" stroke="#3D6B99" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M8.22168 23.7783C9.24312 24.7997 10.4558 25.61 11.7903 26.1628C13.1249 26.7156 14.5553 27.0001 15.9999 27.0001C17.4444 27.0001 18.8748 26.7156 20.2094 26.1628C21.544 25.61 22.7566 24.7997 23.778 23.7783L28.0207 19.5356" stroke="#3D6B99" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+            </a>
+        }
+    </div>
+    <div>
+        <slot />
+    </div>
+</section>
+
+<style>
+    .hero {
+        max-width: 900px;
+        display: flex;
+        align-items: center;
+        column-gap: var(--space_Medium);
+    }
+
+    .hero div:first-child {
+        text-align: center;
+    }
+
+    .hero figure {
+        -webkit-mask-image: url("/images/blob.svg");
+        mask-image: url("/images/blob.svg");
+        -webkit-mask-repeat: no-repeat;
+        mask-repeat: no-repeat;
+        width: 322px;
+        height: 344px;
+        margin: 0 0 var(--space_Base) 0;
+    }
+
+    .hero figure img {
+        height: 100%;
+    }
+
+    .refresh svg {
+		transform-origin: center 16px;
+		transition: transform 0.4s var(--easing);
+	}
+	
+	.refresh:hover svg {
+		transform: rotateZ(-180deg);
+	}
+
+    @media screen and (max-width:767px) {
+        .hero {
+            flex-direction: column;
+        }
+
+        .hero div:first-child {
+            width: 100%;
+            position: relative;
+        }
+
+        .refresh {
+            position: absolute;
+            bottom: var(--space_Base);
+            right: 0;
+            width: 56px;
+            height: 56px;
+            text-align: center;
+            border: 1px solid var(--borderColor);
+            box-shadow: var(--shadow);
+            border-radius: 16px;
+            line-height: 76px;
+        }
+    }
+</style>

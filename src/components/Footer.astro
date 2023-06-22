@@ -1,0 +1,25 @@
+<footer>
+    <p>
+        Design and coded with love<br />
+        &copy; <span class="year"></span> • Vincenzo Petito<br />
+        P.IVA 12299110960
+    </p>
+</footer>
+
+<style>
+    footer {
+        margin: var(--space_ExtraLarge) 0 var(--space_Large);
+    }
+
+    p {
+        font-size: 0.8em;
+        line-height: 1.6;
+        text-align: center;
+        color: var(--lightGrey);
+    }
+</style>
+
+<script>
+    const currentYear = new Date().getFullYear().toString();
+    document.querySelector(".year").textContent = currentYear;
+</script>

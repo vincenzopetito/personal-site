@@ -1,0 +1,42 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import Hero from "../components/Hero.astro";
+import Button from "../components/Button.astro";
+import pastEvents from "../data/events.json";
+import globalData from "../data/global.json";
+---
+
+<MainLayout pageTitle="Speaker">
+    
+    <Hero image="/images/speaker.jpg" imageName="picture of vincenzo talking to an audience">
+        <h2 class="title">A slide without a meme is a lost slide.</h2>
+        <p class="paragraph">Do you want me to speak at your event? For real? Bear in mind my slides always include memes. Still up for it? Cool then, hit the button below.</p>
+        <Button label="Ask for a talk" url={"mailto:" + globalData.email + "?subject=Speech request"} />
+    </Hero>
+
+    <section>
+        <span class="badge">Past events</span>
+        <ul class="item-list">
+            {pastEvents.map((event) => 
+                <li>
+                    <span>{event.date}</span>
+                    <p class="description">
+                        <strong>{event.name}</strong>
+                        {event.description}
+                        {event.link &&
+                            <a href={event.link} target="_blank">
+                                Read the slides
+                                <svg width="46" height="48" viewBox="0 0 46 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path opacity="0.1" d="M5.02829 24.6931C5.52545 17.3506 12.8998 11.594 19.7461 9.24419C26.6297 6.87126 32.9939 7.87477 36.9799 12.4078C40.9948 16.948 42.623 25.0481 38.9438 31.8889C35.256 38.7601 26.232 44.3647 18.5443 42.7064C10.8653 41.0177 4.52258 32.0659 5.02829 24.6931Z" fill="#3D6B99"></path>
+                                    <path d="M15 25.5454H31" stroke="#3D6B99" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                    <path d="M24.4546 19L31 25.5455L24.4546 32.0909" stroke="#3D6B99" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                </svg>
+                            </a>
+                        }
+                    </p>
+                </li>
+            )}
+        </ul>
+    </section>
+
+</MainLayout>
