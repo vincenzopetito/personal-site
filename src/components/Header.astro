@@ -92,16 +92,17 @@ const menuItems = [
 
 <script>
     const menu = document.querySelector(".menu");
+    const menuItem = menu.querySelectorAll("li a");
 
     menu.addEventListener("mouseover", function(event) {
-        menu.querySelectorAll("li a").forEach( function(menuLink) {
+        menuItem.forEach( function(menuLink) {
             menuLink.style.opacity = ".25";
         });
         event.target.style.opacity = "1";
     });
 
-    menu.addEventListener("mouseout", function(event) {
-        menu.querySelectorAll("li a").forEach( function(menuLink) {
+    menu.addEventListener("mouseout", function() {
+        menuItem.forEach( function(menuLink) {
             menuLink.style.opacity = "1";
         });
     });
